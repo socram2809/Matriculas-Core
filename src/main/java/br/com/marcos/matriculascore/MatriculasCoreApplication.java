@@ -1,13 +1,13 @@
-package br.com.marcos.matriculas;
+package br.com.marcos.matriculascore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MatriculasApplication {
+public class MatriculasCoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MatriculasApplication.class, args);
+		SpringApplication.run(MatriculasCoreApplication.class, args);
 	}
 
 }
