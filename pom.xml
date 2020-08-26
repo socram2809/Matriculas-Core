@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.marcos</groupId>
-	<artifactId>matriculas</artifactId>
+	<artifactId>matriculas-core</artifactId>
 	<version>1.0.0</version>
 	<name>matriculas</name>
-	<description>Sistema para gerenciar as matrículas nas turmas de uma escola</description>
+	<description>Core do serviço para gerenciar as matrículas nas turmas de uma escola</description>
 
 	<properties>
 		<java.version>11</java.version>
