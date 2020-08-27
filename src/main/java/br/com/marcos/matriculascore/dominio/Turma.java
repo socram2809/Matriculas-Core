@@ -6,7 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import lombok.Data;
 
@@ -49,12 +50,14 @@ public class Turma {
 	/**
 	 * Disciplinas da Turma
 	 */
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name = "turma_disciplinas")
 	private List<Disciplina> disciplinas;
 	
 	/**
 	 * Alunos da Turma
 	 */
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name = "turma_alunos")
 	private List<Aluno> alunos;
 }

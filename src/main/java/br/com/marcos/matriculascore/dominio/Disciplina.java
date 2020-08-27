@@ -1,13 +1,10 @@
 package br.com.marcos.matriculascore.dominio;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -47,10 +44,4 @@ public class Disciplina {
 	 */
 	@ManyToOne
 	private Professor professor;
-	
-	/**
-	 * Turmas da disciplina
-	 */
-	@OneToMany
-	private List<Turma> turmas;
 }
