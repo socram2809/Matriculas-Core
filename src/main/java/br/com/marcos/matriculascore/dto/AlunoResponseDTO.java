@@ -1,7 +1,5 @@
 package br.com.marcos.matriculascore.dto;
 
-import java.io.Serializable;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -14,9 +12,7 @@ import lombok.Getter;
  *
  */
 @Getter
-public class AlunoResponseDTO extends PessoaResponseDTO implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class AlunoResponseDTO extends PessoaResponseDTO {
 
 	private AlunoResponseDTO(Long id, String nome, String email, String cpf, Integer matricula, String formaIngresso) {
 		this.id = id;
