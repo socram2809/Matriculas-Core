@@ -1,9 +1,14 @@
 package br.com.marcos.matriculascore.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.marcos.matriculascore.dominio.Aluno;
+import br.com.marcos.matriculascore.dto.AlunoResponseDTO;
 import lombok.Getter;
 
 /**
@@ -31,5 +36,11 @@ public class AlunoResponseDTO extends PessoaResponseDTO {
 	
 	public static AlunoResponseDTO transformaEmDTO(Aluno aluno) {
 		return new AlunoResponseDTO(aluno.getId(), aluno.getNome(), aluno.getEmail(), aluno.getCpf(), aluno.getMatricula(), aluno.getFormaIngresso());
+	}
+	
+	public static List<AlunoResponseDTO> transformaEmDTO(List<Aluno> alunos) {
+		return new ArrayList<>(alunos.stream()
+				.map(aluno -> transformaEmDTO(aluno))
+				.collect(Collectors.toList()));
 	}
 }
