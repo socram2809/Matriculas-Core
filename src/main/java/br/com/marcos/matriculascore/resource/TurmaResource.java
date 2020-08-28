@@ -51,7 +51,7 @@ public class TurmaResource {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public TurmaResponseDTO inserirTurma(@Valid @RequestBody CriarTurmaDTO turma) {
 		TurmaResponseDTO turmaDTO = TurmaResponseDTO.transformaEmDTO(turmaRepository.save(turma.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("turma.create", turmaDTO);
+		jmsTemplateTopic.convertAndSend("turma.update", turmaDTO);
 		return turmaDTO;
 	}
 	

@@ -51,7 +51,7 @@ public class AlunoResource {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public AlunoResponseDTO inserirAluno(@Valid @RequestBody CriarAlunoDTO aluno) {
 		AlunoResponseDTO alunoDTO = AlunoResponseDTO.transformaEmDTO(alunoRepository.save(aluno.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("aluno.create", alunoDTO);
+		jmsTemplateTopic.convertAndSend("aluno.update", alunoDTO);
 		return alunoDTO;
 	}
 	

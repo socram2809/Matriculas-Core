@@ -51,7 +51,7 @@ public class ProfessorResource {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public ProfessorResponseDTO inserirProfessor(@Valid @RequestBody CriarProfessorDTO professor) {
 		ProfessorResponseDTO professorDTO = ProfessorResponseDTO.transformaEmDTO(professorRepository.save(professor.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("professor.create", professorDTO);
+		jmsTemplateTopic.convertAndSend("professor.update", professorDTO);
 		return professorDTO;
 	}
 	

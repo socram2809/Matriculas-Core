@@ -51,7 +51,7 @@ public class DisciplinaResource {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public DisciplinaResponseDTO inserirDisciplina(@Valid @RequestBody CriarDisciplinaDTO disciplina) {
 		DisciplinaResponseDTO disciplinaDTO = DisciplinaResponseDTO.transformaEmDTO(disciplinaRepository.save(disciplina.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("disciplina.create", disciplinaDTO);
+		jmsTemplateTopic.convertAndSend("disciplina.update", disciplinaDTO);
 		return disciplinaDTO;
 	}
 	
