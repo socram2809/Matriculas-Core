@@ -1,5 +1,7 @@
 package br.com.marcos.matriculascore.dto;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -11,8 +13,10 @@ import lombok.Getter;
  *
  */
 @Getter
-public abstract class AtualizarPessoaDTO {
+public abstract class AtualizarPessoaDTO implements Serializable {
 	
+	private static final long serialVersionUID = 3402613315983496789L;
+
 	@NotNull
 	protected Long id;
 	

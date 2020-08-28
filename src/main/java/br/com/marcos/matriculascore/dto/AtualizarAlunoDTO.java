@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import br.com.marcos.matriculascore.dominio.Aluno;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * DTO para atualizar aluno
@@ -14,6 +15,7 @@ import lombok.Getter;
  *
  */
 @Getter
+@NoArgsConstructor
 public class AtualizarAlunoDTO extends AtualizarPessoaDTO implements Serializable {
 	
 	private static final long serialVersionUID = -6738226547302018093L;
@@ -27,6 +29,7 @@ public class AtualizarAlunoDTO extends AtualizarPessoaDTO implements Serializabl
 	public AtualizarAlunoDTO(AlunoResponseDTO aluno) {
 		this.id = aluno.getId();
 		this.nome = aluno.getNome();
+		this.email = aluno.getEmail();
 		this.cpf = aluno.getCpf();
 		this.matricula = aluno.getMatricula();
 		this.formaIngresso = aluno.getFormaIngresso();
