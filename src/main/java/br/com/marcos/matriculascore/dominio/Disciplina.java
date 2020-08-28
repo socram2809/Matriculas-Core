@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Disciplina {
 	
@@ -34,21 +36,6 @@ public class Disciplina {
 	 * @param cargaHoraria
 	 */
 	public Disciplina(String descricao, String sigla, Integer cargaHoraria, Professor professor) {
-		this.descricao = descricao;
-		this.sigla = sigla;
-		this.cargaHoraria = cargaHoraria;
-		this.professor = professor;
-	}
-	
-	/**
-	 * Construtor para alteração de disciplina
-	 * @param id
-	 * @param descricao
-	 * @param sigla
-	 * @param cargaHoraria
-	 */
-	public Disciplina(Long id, String descricao, String sigla, Integer cargaHoraria, Professor professor) {
-		this.id = id;
 		this.descricao = descricao;
 		this.sigla = sigla;
 		this.cargaHoraria = cargaHoraria;
