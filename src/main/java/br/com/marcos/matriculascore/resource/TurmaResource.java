@@ -51,7 +51,7 @@ public class TurmaResource {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public TurmaResponseDTO inserirTurma(@Valid @RequestBody CriarTurmaDTO turma) {
 		TurmaResponseDTO turmaDTO = TurmaResponseDTO.transformaEmDTO(turmaRepository.save(turma.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("turma.update", turmaDTO);
+		jmsTemplateTopic.convertAndSend("turma.update", new AtualizarTurmaDTO(turmaDTO));
 		return turmaDTO;
 	}
 	
@@ -65,7 +65,7 @@ public class TurmaResource {
 	@ResponseStatus(code = HttpStatus.OK)
 	public TurmaResponseDTO atualizarTurma(@Valid @RequestBody AtualizarTurmaDTO turma) {
 		TurmaResponseDTO turmaDTO = TurmaResponseDTO.transformaEmDTO(turmaRepository.save(turma.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("turma.update", turmaDTO);
+		jmsTemplateTopic.convertAndSend("turma.update", new AtualizarTurmaDTO(turmaDTO));
 		return turmaDTO;
 	}
 	

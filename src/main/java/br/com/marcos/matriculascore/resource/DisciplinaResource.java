@@ -51,7 +51,7 @@ public class DisciplinaResource {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public DisciplinaResponseDTO inserirDisciplina(@Valid @RequestBody CriarDisciplinaDTO disciplina) {
 		DisciplinaResponseDTO disciplinaDTO = DisciplinaResponseDTO.transformaEmDTO(disciplinaRepository.save(disciplina.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("disciplina.update", disciplinaDTO);
+		jmsTemplateTopic.convertAndSend("disciplina.update", new AtualizarDisciplinaDTO(disciplinaDTO));
 		return disciplinaDTO;
 	}
 	
@@ -65,7 +65,7 @@ public class DisciplinaResource {
 	@ResponseStatus(code = HttpStatus.OK)
 	public DisciplinaResponseDTO atualizarDisciplina(@Valid @RequestBody AtualizarDisciplinaDTO disciplina) {
 		DisciplinaResponseDTO disciplinaDTO = DisciplinaResponseDTO.transformaEmDTO(disciplinaRepository.save(disciplina.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("disciplina.update", disciplinaDTO);
+		jmsTemplateTopic.convertAndSend("disciplina.update", new AtualizarDisciplinaDTO(disciplinaDTO));
 		return disciplinaDTO;
 	}
 	

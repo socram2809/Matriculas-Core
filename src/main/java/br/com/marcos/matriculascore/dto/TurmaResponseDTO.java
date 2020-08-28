@@ -1,6 +1,5 @@
 package br.com.marcos.matriculascore.dto;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,9 +21,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class TurmaResponseDTO implements Serializable {
-	
-	private static final long serialVersionUID = 4L;
+public class TurmaResponseDTO {
 
 	@NotNull
 	private Long id;

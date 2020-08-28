@@ -1,7 +1,5 @@
 package br.com.marcos.matriculascore.dto;
 
-import java.io.Serializable;
-
 import javax.validation.constraints.NotBlank;
 
 import br.com.marcos.matriculascore.dominio.Professor;
@@ -13,9 +11,7 @@ import lombok.Getter;
  *
  */
 @Getter
-public class ProfessorResponseDTO extends PessoaResponseDTO implements Serializable {
-	
-	private static final long serialVersionUID = 2L;
+public class ProfessorResponseDTO extends PessoaResponseDTO {
 
 	private ProfessorResponseDTO(Long id, String nome, String email, String cpf, String titulacao) {
 		this.id = id;

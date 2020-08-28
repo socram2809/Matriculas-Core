@@ -1,5 +1,6 @@
 package br.com.marcos.matriculascore.dto;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,7 @@ import br.com.marcos.matriculascore.dominio.Aluno;
 import br.com.marcos.matriculascore.dominio.Disciplina;
 import br.com.marcos.matriculascore.dominio.Turma;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * DTO para atualizar turma
@@ -18,8 +20,11 @@ import lombok.Getter;
  *
  */
 @Getter
-public class AtualizarTurmaDTO {
+@NoArgsConstructor
+public class AtualizarTurmaDTO implements Serializable {
 	
+	private static final long serialVersionUID = 5078339488212708185L;
+
 	@NotNull
 	private Long id;
 	
@@ -40,6 +45,16 @@ public class AtualizarTurmaDTO {
 	
 	@NotEmpty
 	private List<Long> alunos;
+	
+	public AtualizarTurmaDTO(TurmaResponseDTO turma) {
+		this.id = turma.getId();
+		this.descricao = turma.getDescricao();
+		this.anoLetivo = turma.getAnoLetivo();
+		this.periodoLetivo = turma.getPeriodoLetivo();
+		this.numeroVagas = turma.getNumeroVagas();
+		this.disciplinas = turma.getDisciplinas();
+		this.alunos = turma.getAlunos();
+	}
 	
 	public Turma transformaParaObjeto() {
 		return new Turma(id, descricao, anoLetivo, periodoLetivo, numeroVagas, 

@@ -1,7 +1,5 @@
 package br.com.marcos.matriculascore.dto;
 
-import java.io.Serializable;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -17,9 +15,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class DisciplinaResponseDTO implements Serializable {
-	
-	private static final long serialVersionUID = 3L;
+public class DisciplinaResponseDTO {
 
 	@NotNull
 	private Long id;

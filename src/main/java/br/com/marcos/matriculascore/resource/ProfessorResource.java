@@ -51,7 +51,7 @@ public class ProfessorResource {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public ProfessorResponseDTO inserirProfessor(@Valid @RequestBody CriarProfessorDTO professor) {
 		ProfessorResponseDTO professorDTO = ProfessorResponseDTO.transformaEmDTO(professorRepository.save(professor.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("professor.update", professorDTO);
+		jmsTemplateTopic.convertAndSend("professor.update", new AtualizarProfessorDTO(professorDTO));
 		return professorDTO;
 	}
 	
@@ -65,7 +65,7 @@ public class ProfessorResource {
 	@ResponseStatus(code = HttpStatus.OK)
 	public ProfessorResponseDTO atualizarProfessor(@Valid @RequestBody AtualizarProfessorDTO professor) {
 		ProfessorResponseDTO professorDTO = ProfessorResponseDTO.transformaEmDTO(professorRepository.save(professor.transformaParaObjeto()));
-		jmsTemplateTopic.convertAndSend("professor.update", professorDTO);
+		jmsTemplateTopic.convertAndSend("professor.update", new AtualizarProfessorDTO(professorDTO));
 		return professorDTO;
 	}
 	
