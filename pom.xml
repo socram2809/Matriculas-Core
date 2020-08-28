@@ -11,7 +11,7 @@
 	<groupId>br.com.marcos</groupId>
 	<artifactId>matriculas-core</artifactId>
 	<version>1.0.0</version>
-	<name>matriculas</name>
+	<name>matriculascore</name>
 	<description>Core do serviço para gerenciar as matrículas nas turmas de uma escola</description>
 
 	<properties>
