@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Classe de domínio que representa uma turma
@@ -17,8 +19,26 @@ import lombok.Data;
  *
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Turma {
+	
+	/**
+	 * Construtor para criação de turma
+	 * @param descricao
+	 * @param anoLetivo
+	 * @param periodoLetivo
+	 * @param numeroVagas
+	 */
+	public Turma(String descricao, Integer anoLetivo, Integer periodoLetivo, Integer numeroVagas, List<Disciplina> disciplinas, List<Aluno> alunos) {
+		this.descricao = descricao;
+		this.anoLetivo = anoLetivo;
+		this.periodoLetivo = periodoLetivo;
+		this.numeroVagas = numeroVagas;
+		this.disciplinas = disciplinas;
+		this.alunos = alunos;
+	}
 	
 	/**
 	 * Identificador da turma

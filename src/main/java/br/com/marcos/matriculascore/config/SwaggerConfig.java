@@ -1,4 +1,4 @@
-package br.com.marcos.matriculascore;
+package br.com.marcos.matriculascore.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class SwaggerConfig {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
 						.select()
-						.apis(RequestHandlerSelectors.any())
+						.apis(RequestHandlerSelectors.basePackage("br.com.marcos.matriculascore"))
 						.paths(PathSelectors.any())
 						.build();
 	}

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Classe de domínio que representa uma disciplina
@@ -14,8 +15,45 @@ import lombok.Data;
  *
  */
 @Data
+@NoArgsConstructor
 @Entity
 public class Disciplina {
+	
+	/**
+	 * Construtor para relacionamentos
+	 * @param id
+	 */
+	public Disciplina(Long id) {
+		this.id = id;
+	}
+	
+	/**
+	 * Construtor para criação de disciplina
+	 * @param descricao
+	 * @param sigla
+	 * @param cargaHoraria
+	 */
+	public Disciplina(String descricao, String sigla, Integer cargaHoraria, Professor professor) {
+		this.descricao = descricao;
+		this.sigla = sigla;
+		this.cargaHoraria = cargaHoraria;
+		this.professor = professor;
+	}
+	
+	/**
+	 * Construtor para alteração de disciplina
+	 * @param id
+	 * @param descricao
+	 * @param sigla
+	 * @param cargaHoraria
+	 */
+	public Disciplina(Long id, String descricao, String sigla, Integer cargaHoraria, Professor professor) {
+		this.id = id;
+		this.descricao = descricao;
+		this.sigla = sigla;
+		this.cargaHoraria = cargaHoraria;
+		this.professor = professor;
+	}
 	
 	/**
 	 * Identificador da disciplina
@@ -42,6 +80,6 @@ public class Disciplina {
 	/**
 	 * Professor que ministrará a disciplica
 	 */
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Professor professor;
 }
